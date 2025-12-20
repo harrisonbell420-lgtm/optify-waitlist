@@ -1,39 +1,48 @@
-import { Client } from "@notionhq/client";
+import { createClient } from "@supabase/supabase-js";
 import { NextResponse } from "next/server";
+
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.SUPABASE_SERVICE_ROLE_KEY!
+);
 
 export async function POST(request: Request) {
   const body = await request.json();
   try {
-    const notion = new Client({ auth: process.env.NOTION_SECRET });
-    const response = await notion.pages.create({
-      parent: {
-        database_id: `${process.env.NOTION_DB}`,
-      },
-      properties: {
-        Email: {
-          type: "email",
+    const { data, error } = await supabase
+      .from("waitlist")
+      .insert([
+        {
+          name: body?.name,
           email: body?.email,
+          created_at: new Date().toISOString(),
         },
-        Name: {
-          type: "title",
-          title: [
-            {
-              type: "text",
-              text: {
-                content: body?.name,
-              },
-            },
-          ],
-        },
-      },
-    });
+      ])
+      .select();
 
-    if (!response) {
-      throw new Error("Failed to add email to Notion");
+    if (error) {
+      console.error("Supabase error:", error);
+      
+      // Check if it's a duplicate email error
+      if (error.code === '23505' && error.message.includes('duplicate key')) {
+        return NextResponse.json(
+          { success: false, error: "Email already registered" },
+          { status: 409 }
+        );
+      }
+      
+      return NextResponse.json(
+        { success: false, error: "Failed to add email to database" },
+        { status: 500 }
+      );
     }
 
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (error) {
-    return NextResponse.json({ success: false }, { status: 500 });
+    console.error("Error:", error);
+    return NextResponse.json(
+      { success: false, error: "Server error" },
+      { status: 500 }
+    );
   }
 }

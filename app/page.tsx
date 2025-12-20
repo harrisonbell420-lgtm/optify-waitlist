@@ -4,10 +4,8 @@ import { toast } from "sonner";
 import { useState } from "react";
 import CTA from "@/components/cta";
 import Form from "@/components/form";
-import Logos from "@/components/logos";
 import Particles from "@/components/ui/particles";
 import Header from "@/components/header";
-import Footer from "@/components/footer";
 
 export default function Home() {
   const [name, setName] = useState<string>("");
@@ -29,12 +27,12 @@ export default function Home() {
 
   const handleSubmit = async () => {
     if (!name || !email) {
-      toast.error("Please fill in all fields 😠");
+      toast.error("Please enter your name and email");
       return;
     }
 
     if (!isValidEmail(email)) {
-      toast.error("Please enter a valid email address 😠");
+      toast.error("Please enter a valid email address");
       return;
     }
 
@@ -73,8 +71,11 @@ export default function Home() {
         if (!notionResponse.ok) {
           if (notionResponse.status === 429) {
             reject("Rate limited");
+          } else if (notionResponse.status === 409) {
+            reject("Duplicate email");
           } else {
-            reject("Notion insertion failed");
+            const errorData = await notionResponse.json();
+            reject(errorData.error || "Database error");
           }
         } else {
           resolve({ name });
@@ -85,21 +86,23 @@ export default function Home() {
     });
 
     toast.promise(promise, {
-      loading: "Getting you on the waitlist... 🚀",
+      loading: "Adding you to the waitlist...",
       success: (data) => {
         setName("");
         setEmail("");
-        return "Thank you for joining the waitlist 🎉";
+        return "You're on the list! Check your email for confirmation.";
       },
       error: (error) => {
         if (error === "Rate limited") {
-          return "You're doing that too much. Please try again later";
+          return "Too many requests. Please try again in a minute.";
         } else if (error === "Email sending failed") {
-          return "Failed to send email. Please try again 😢.";
-        } else if (error === "Notion insertion failed") {
-          return "Failed to save your details. Please try again 😢.";
+          return "Couldn't send confirmation email. Please try again.";
+        } else if (error === "Duplicate email") {
+          return "This email is already on the waitlist!";
+        } else if (error === "Database error" || error.includes("Failed to add email")) {
+          return "Couldn't save your information. Please try again.";
         }
-        return "An error occurred. Please try again 😢.";
+        return "Something went wrong. Please try again.";
       },
     });
 
@@ -109,8 +112,19 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center overflow-x-clip pt-12 md:pt-24">
-      <section className="flex flex-col items-center px-4 sm:px-6 lg:px-8">
+    <main className="relative flex min-h-screen flex-col items-center overflow-x-clip pt-12 md:pt-24">
+      {/* Background gradients */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute top-40 left-20 h-[700px] w-[700px] rounded-full" style={{ background: 'radial-gradient(circle, rgba(0, 255, 14, 0.015) 0%, transparent 70%)' }}></div>
+        <div className="absolute top-10 right-1/4 h-[600px] w-[600px] rounded-full" style={{ background: 'radial-gradient(circle, rgba(0, 255, 14, 0.012) 0%, transparent 70%)' }}></div>
+        <div className="absolute top-1/2 right-20 h-[500px] w-[500px] rounded-full" style={{ background: 'radial-gradient(circle, rgba(0, 255, 14, 0.018) 0%, transparent 70%)' }}></div>
+        <div className="absolute top-2/3 left-1/4 h-[550px] w-[550px] rounded-full" style={{ background: 'radial-gradient(circle, rgba(0, 255, 14, 0.015) 0%, transparent 70%)' }}></div>
+        <div className="absolute bottom-20 right-1/2 h-[650px] w-[650px] rounded-full" style={{ background: 'radial-gradient(circle, rgba(0, 255, 14, 0.015) 0%, transparent 70%)' }}></div>
+        <div className="absolute top-1/4 left-1/2 h-[500px] w-[500px] rounded-full" style={{ background: 'radial-gradient(circle, rgba(0, 255, 14, 0.012) 0%, transparent 70%)' }}></div>
+        <div className="absolute bottom-40 left-10 h-[520px] w-[520px] rounded-full" style={{ background: 'radial-gradient(circle, rgba(0, 255, 14, 0.018) 0%, transparent 70%)' }}></div>
+      </div>
+      
+      <section className="relative z-10 flex flex-col items-center px-4 sm:px-6 lg:px-8">
         <Header />
 
         <CTA />
@@ -123,17 +137,13 @@ export default function Home() {
           handleSubmit={handleSubmit}
           loading={loading}
         />
-
-        <Logos />
       </section>
-
-      <Footer />
 
       <Particles
         quantityDesktop={350}
         quantityMobile={100}
         ease={80}
-        color={"#F7FF9B"}
+        color={"#C7F5CB"}
         refresh
       />
     </main>

@@ -38,23 +38,30 @@ export async function POST(request: NextRequest, response: NextResponse) {
 
   const { email, firstname } = await request.json();
 
+  console.log("Attempting to send email to:", email);
+  console.log("From name:", firstname);
+
   const { data, error } = await resend.emails.send({
-    from: "Lakshay<hello@waitlist.lakshb.dev>",
+    from: process.env.RESEND_FROM_EMAIL || "Optify <onboarding@resend.dev>",
     to: [email],
-    subject: "Thankyou for wailisting the Next.js + Notion CMS template!",
-    reply_to: "lakshb.work@gmail.com",
+    subject: "Welcome to Optify - You're on the Waitlist!",
     html:  await render(WelcomeTemplate({ userFirstname: firstname })),
   });
+
+  console.log("Resend response:", { data, error });
 
   // const { data, error } = { data: true, error: null }
 
   if (error) {
-    return NextResponse.json(error);
+    console.error("Resend error:", error);
+    return NextResponse.json(error, { status: 400 });
   }
 
   if (!data) {
-    return NextResponse.json({ message: "Failed to send email" });
+    console.error("No data returned from Resend");
+    return NextResponse.json({ message: "Failed to send email" }, { status: 500 });
   }
 
+  console.log("Email sent successfully:", data);
   return NextResponse.json({ message: "Email sent successfully" });
 }

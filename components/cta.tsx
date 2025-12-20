@@ -21,23 +21,27 @@ export default function CTA() {
       </motion.div>
 
       <motion.img
-        src="/logo.svg"
-        alt="logo"
-        className="mx-auto h-24 w-24"
+        src="/optify-logo-with-text.svg"
+        alt="Optify logo with text"
+        className="mx-auto h-16 w-auto object-contain"
         variants={itemVariants}
       />
 
-      <motion.div variants={itemVariants}>
-        <TextBlur
-          className="text-center text-3xl font-medium tracking-tighter sm:text-5xl"
-          text="A Simple Next.js Waitlist Template with Notion as CMS"
-        />
-      </motion.div>
+      <motion.h1
+        variants={itemVariants}
+        initial="hidden"
+        animate="visible"
+        className="text-center text-3xl font-semibold tracking-tighter sm:text-5xl font-chakra-petch drop-shadow-sm">
+        Smarter Website Optimization{" "}
+        <span className="bg-gradient-to-r from-[#EFFFEF] to-[#00FF0E] bg-clip-text text-transparent">
+          Starts Here
+        </span>
+      </motion.h1>
 
       <motion.div variants={itemVariants}>
         <TextBlur
-          className="mx-auto max-w-[27rem] pt-1.5 text-center text-base text-zinc-300 sm:text-lg"
-          text="Join the waitlist to get early access of the product and recieve updates on the progress!"
+          className="mx-auto max-w-[40rem] pt-1.5 text-center text-base text-zinc-300 sm:text-lg"
+          text="Join the waitlist to be notified when Optify launches"
           duration={0.8}
         />
       </motion.div>

@@ -1,10 +1,20 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Figtree } from "next/font/google";
+import { Inter, Chakra_Petch } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
 import { Analytics } from "@vercel/analytics/react";
 
-const FigtreeFont = Figtree({ subsets: ["latin"] });
+// Using Inter which is very similar to Geist
+// For true Geist font, you would need to download and use localFont
+const GeistFont = Inter({ 
+  subsets: ["latin"],
+  variable: "--font-geist"
+});
+const ChakraPetch = Chakra_Petch({ 
+  subsets: ["latin"],
+  weight: "600", // Semi-Bold
+  variable: "--font-chakra-petch"
+});
 
 export const metadata: Metadata = {
   title: "Next.js + Notion — Waitlist Template",
@@ -35,7 +45,7 @@ export default function RootLayout({
       <meta name="twitter:image:type" content="image/png" />
       <meta name="twitter:image:width" content="1280" />
       <meta name="twitter:image:height" content="832" />
-      <body className={FigtreeFont.className}>
+      <body className={`${GeistFont.className} ${ChakraPetch.variable}`}>
         {children}
         <Toaster richColors position="top-center" />
         <Analytics />
