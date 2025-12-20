@@ -17,9 +17,9 @@ const ChakraPetch = Chakra_Petch({
 });
 
 export const metadata: Metadata = {
-  title: "Next.js + Notion — Waitlist Template",
+  title: "Optify - Join the Waitlist",
   description:
-    "A simple Next.js waitlist template with Notion as CMS and Resend to send emails created with React Email and Upstash Redis for rate limiting. Deployed on Vercel.",
+    "Join the Optify waitlist for smarter, AI-powered website optimization. Be the first to know when we launch.",
 };
 
 export default function RootLayout({
