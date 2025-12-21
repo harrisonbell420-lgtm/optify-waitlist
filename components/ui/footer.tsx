@@ -11,7 +11,6 @@ export default function Footer() {
       initial="hidden"
       animate="visible"
     >
-      © 2025 Optify. All rights reserved.
     </motion.footer>
   );
 }
