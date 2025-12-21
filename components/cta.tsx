@@ -33,7 +33,7 @@ export default function CTA() {
         animate="visible"
         className="text-center text-3xl font-semibold tracking-tighter sm:text-5xl font-chakra-petch drop-shadow-sm">
         Smarter Website Optimization{" "}
-        <span className="bg-gradient-to-r from-[#EFFFEF] to-[#00FF0E] bg-clip-text text-transparent">
+        <span className="bg-gradient-to-r from-[#A8FFB0] to-[#00FF0E] bg-clip-text text-transparent">
           Starts Here
         </span>
       </motion.h1>
