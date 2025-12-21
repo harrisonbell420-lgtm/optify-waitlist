@@ -6,6 +6,7 @@ export default function Footer() {
   return (
     <motion.footer
       className="w-full text-center text-xs text-gray-400 pb-16 pt-2 z-20 relative"
+      style={{ marginTop: "6rem" }}
       variants={itemVariants}
       initial="hidden"
       animate="visible"
