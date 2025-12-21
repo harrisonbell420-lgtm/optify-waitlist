@@ -28,7 +28,7 @@ export function generateMetadata() {
       description: 'AI-powered waitlist and onboarding for your product.',
       images: [
         {
-          url: 'https://optifyai.app/opengraph-image-new.png',
+          url: 'https://optifyai.app/opengraph-image.png',
           width: 1365,
           height: 768,
           alt: 'Optify Logo',
