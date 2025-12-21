@@ -25,7 +25,7 @@ export const NotionWaitlistEmail = ({ userFirstname }: EmailProps) => (
           width="200"
           height="67"
           alt="Optify Logo"
-          style={{ display: "block", margin: "0 0 20px 0" }}
+          style={{ display: "block", margin: "0 auto 20px 60px" }}
         />
         <Text style={greeting}>Hi {userFirstname},</Text>
         <Text style={paragraph}>
