@@ -19,6 +19,7 @@ const ChakraPetch = Chakra_Petch({
 });
 
 export function generateMetadata() {
+  // Append timestamp query param to force scrapers to fetch a fresh image
   const _v = Date.now();
   return {
     title: "Optify - Join the Waitlist",
