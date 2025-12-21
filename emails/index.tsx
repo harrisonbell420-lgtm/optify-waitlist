@@ -79,7 +79,7 @@ const container = {
 };
 
 const logo = {
-  margin: "0 auto",
+  margin: "0 auto 20px 10px",
   paddingBottom: "20px",
 };
 
