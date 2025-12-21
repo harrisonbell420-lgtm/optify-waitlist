@@ -20,15 +20,13 @@ export const NotionWaitlistEmail = ({ userFirstname }: EmailProps) => (
     <Preview>Welcome to Optify, {userFirstname}! 🎉</Preview>
     <Body style={main}>
       <Container style={container}>
-        <div style={{ textAlign: "center", marginBottom: 20 }}>
-          <Img
-            src={`https://optifyai.app/optify-logo-with-text.png`}
-            width="200"
-            height="67"
-            alt="Optify Logo"
-            style={{ display: "block", margin: "0 auto" }}
-          />
-        </div>
+        <Img
+          src={`https://optifyai.app/optify-logo-with-text.png`}
+          width="200"
+          height="67"
+          alt="Optify Logo"
+          style={{ display: "block", margin: "0 0 20px 0" }}
+        />
         <Text style={greeting}>Hi {userFirstname},</Text>
         <Text style={paragraph}>
           Thanks for joining the Optify waitlist! We're excited to have you on board.
