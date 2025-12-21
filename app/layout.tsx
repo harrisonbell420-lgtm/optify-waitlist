@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { Inter, Chakra_Petch } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
 import { Analytics } from "@vercel/analytics/react";
+import { motion } from "framer-motion";
+import { itemVariants } from "@/lib/animation-variants";
 
 // Using Inter which is very similar to Geist
 // For true Geist font, you would need to download and use localFont
@@ -49,9 +51,14 @@ export default function RootLayout({
         {children}
         <Toaster richColors position="top-center" />
         <Analytics />
-        <footer className="w-full text-center text-xs text-gray-400 pb-6 pt-2 z-20 relative">
+        <motion.footer
+          className="w-full text-center text-xs text-gray-400 pb-16 pt-2 z-20 relative"
+          variants={itemVariants}
+          initial="hidden"
+          animate="visible"
+        >
           © 2025 Optify. All rights reserved.
-        </footer>
+        </motion.footer>
       </body>
     </html>
   );
