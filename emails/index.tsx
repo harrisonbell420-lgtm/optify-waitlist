@@ -21,7 +21,7 @@ export const NotionWaitlistEmail = ({ userFirstname }: EmailProps) => (
     <Body style={main}>
       <Container style={container}>
         <Img
-          src={`https://your-domain.com/optify-logo-with-text.svg`}
+          src={`https://optifyai.app/optify-logo-with-text.svg`}
           width="200"
           height="67"
           alt="Optify Logo"
