@@ -41,7 +41,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
   console.log("From name:", firstname);
 
   const { data, error } = await resend.emails.send({
-    from: process.env.RESEND_FROM_EMAIL || "Optify <onboarding@resend.dev>",
+    from: "Optify <onboarding@resend.dev>",
     to: [email],
     subject: "Welcome to Optify - You're on the Waitlist!",
     html:  await render(WelcomeTemplate({ userFirstname: firstname })),
