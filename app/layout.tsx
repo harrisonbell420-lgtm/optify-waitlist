@@ -28,6 +28,8 @@ export function generateMetadata() {
     openGraph: {
       title: 'Optify',
       description: 'AI-powered waitlist and onboarding for your product.',
+      url: 'https://www.optifyai.app',
+      type: 'website',
       images: [
         {
           url: `https://optifyai.app/opengraph-image.png?v=${_v}`,
@@ -47,8 +49,36 @@ export function generateMetadata() {
       {
         tagName: 'meta',
         attributes: {
+          property: 'og:url',
+          content: 'https://www.optifyai.app',
+        },
+      },
+      {
+        tagName: 'meta',
+        attributes: {
+          property: 'og:type',
+          content: 'website',
+        },
+      },
+      {
+        tagName: 'meta',
+        attributes: {
           property: 'twitter:image',
           content: `https://optifyai.app/twitter-image.png?v=${_v}`,
+        },
+      },
+      {
+        tagName: 'meta',
+        attributes: {
+          property: 'twitter:domain',
+          content: 'optifyai.app',
+        },
+      },
+      {
+        tagName: 'meta',
+        attributes: {
+          property: 'twitter:url',
+          content: 'https://www.optifyai.app',
         },
       },
     ],
