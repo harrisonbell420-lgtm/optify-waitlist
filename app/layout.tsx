@@ -32,7 +32,7 @@ export function generateMetadata() {
       type: 'website',
       images: [
         {
-          url: 'https://optifyai.app/opengraph-image-v2.png',
+          url: `https://optifyai.app/opengraph-image.png?v=${_v}`,
           width: 1365,
           height: 768,
           alt: 'Optify Logo',
