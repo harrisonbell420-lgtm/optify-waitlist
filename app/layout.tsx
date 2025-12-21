@@ -19,6 +19,7 @@ const ChakraPetch = Chakra_Petch({
 });
 
 export function generateMetadata() {
+  const _v = Date.now();
   return {
     title: "Optify - Join the Waitlist",
     description:
@@ -28,7 +29,7 @@ export function generateMetadata() {
       description: 'AI-powered waitlist and onboarding for your product.',
       images: [
         {
-          url: 'https://optifyai.app/opengraph-image.png',
+          url: `https://optifyai.app/opengraph-image.png?v=${_v}`,
           width: 1365,
           height: 768,
           alt: 'Optify Logo',
@@ -39,14 +40,14 @@ export function generateMetadata() {
       card: 'summary_large_image',
       title: 'Optify',
       description: 'AI-powered waitlist and onboarding for your product.',
-      images: ['https://optifyai.app/twitter-image.png'],
+      images: [`https://optifyai.app/twitter-image.png?v=${_v}`],
     },
     other: [
       {
         tagName: 'meta',
         attributes: {
           property: 'twitter:image',
-          content: 'https://optifyai.app/twitter-image.png',
+          content: `https://optifyai.app/twitter-image.png?v=${_v}`,
         },
       },
     ],
