@@ -59,7 +59,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html lang="en" className="dark overflow-hidden" suppressHydrationWarning>
       <head>
         <meta property="og:image" content="/opengraph-image.png" />
         <meta property="og:image:type" content="image/png" />
@@ -70,7 +70,7 @@ export default function RootLayout({
           content="Next.js + Notion — Waitlist Template"
         />
       </head>
-      <body className={`${GeistFont.className} ${ChakraPetch.variable}`}> 
+      <body className={`${GeistFont.className} ${ChakraPetch.variable} overflow-hidden`}> 
         {children}
         <Toaster richColors position="top-center" />
         <Analytics />
