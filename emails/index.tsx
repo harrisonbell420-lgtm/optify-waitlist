@@ -73,7 +73,7 @@ const main = {
 
 const container = {
   margin: "0 auto",
-  padding: "24px 0 48px",
+  padding: "24px 32px 48px",
   backgroundColor: "#1a1a1a",
   borderRadius: "12px",
   boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)",
