@@ -22,11 +22,11 @@ export function generateMetadata() {
   // Append timestamp query param to force scrapers to fetch a fresh image
   const _v = Date.now();
   return {
-    title: "Optify - Join the Waitlist",
+    title: "Optify — Join the Waitlist for AI-powered Website Optimization",
     description:
       "Join the Optify waitlist for smarter, AI-powered website optimization. Be the first to know when we launch.",
     openGraph: {
-      title: 'Optify',
+      title: 'Optify — Join the Waitlist for AI-powered Website Optimization',
       description: 'Join the Optify waitlist for smarter, AI-powered website optimization. Be the first to know when we launch.',
       url: 'https://www.optifyai.app',
       type: 'website',
@@ -41,7 +41,7 @@ export function generateMetadata() {
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Optify',
+      title: 'Optify — Join the Waitlist for AI-powered Website Optimization',
       description: 'Join the Optify waitlist for smarter, AI-powered website optimization. Be the first to know when we launch.',
       images: [`https://optifyai.app/twitter-image.png?v=${_v}`],
     },
