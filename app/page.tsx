@@ -139,6 +139,7 @@ export default function Home() {
         />
       </section>
 
+
       <Particles
         quantityDesktop={350}
         quantityMobile={100}
@@ -146,6 +147,10 @@ export default function Home() {
         color={"#C7F5CB"}
         refresh
       />
+
+      <footer className="w-full text-center text-xs text-gray-400 pb-6 pt-2 z-20 relative">
+        © 2025 Optify. All rights reserved.
+      </footer>
     </main>
   );
 }
