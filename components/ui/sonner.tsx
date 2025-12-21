@@ -25,6 +25,7 @@ const Toaster = ({ ...props }: ToasterProps) => {
           error: "group-[.toast]:text-red-400",
           info: "group-[.toast]:text-blue-400",
           loading: "group-[.toast]:text-zinc-300 text-center",
+          content: "flex flex-col items-center justify-center w-full",
         },
         style: {
           textAlign: 'center',
