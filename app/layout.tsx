@@ -27,7 +27,7 @@ export function generateMetadata() {
       "Join the Optify waitlist for smarter, AI-powered website optimization. Be the first to know when we launch.",
     openGraph: {
       title: 'Optify',
-      description: 'AI-powered waitlist and onboarding for your product.',
+      description: 'Join the Optify waitlist for smarter, AI-powered website optimization. Be the first to know when we launch.',
       url: 'https://www.optifyai.app',
       type: 'website',
       images: [
@@ -42,7 +42,7 @@ export function generateMetadata() {
     twitter: {
       card: 'summary_large_image',
       title: 'Optify',
-      description: 'AI-powered waitlist and onboarding for your product.',
+      description: 'Join the Optify waitlist for smarter, AI-powered website optimization. Be the first to know when we launch.',
       images: [`https://optifyai.app/twitter-image.png?v=${_v}`],
     },
     other: [
