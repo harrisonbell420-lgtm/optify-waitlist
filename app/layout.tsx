@@ -1,23 +1,5 @@
 import "./globals.css";
 
-export const metadata = {
-  // ...existing metadata...
-};
-
-export function generateMetadata() {
-  return {
-    // ...existing metadata...
-    other: [
-      {
-        tagName: 'meta',
-        attributes: {
-          property: 'twitter:image',
-          content: 'https://optifyai.app/twitter-image.png',
-        },
-      },
-    ],
-  };
-}
 import type { Metadata } from "next";
 import { Inter, Chakra_Petch } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
