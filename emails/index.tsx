@@ -36,9 +36,20 @@ export const NotionWaitlistEmail = ({ userFirstname }: EmailProps) => (
           You'll be among the first to know when we launch and get exclusive early access.
         </Text>
         <Text style={paragraph}>
-          We'll keep you updated on our progress. In the meantime, follow us on X/Twitter:{" "}
+          We'll keep you updated on our progress. In the meantime, follow us on X/Twitter: {" "}
           <a href="https://x.com/optifyai" style={link}>
             @optifyai
+          </a>
+          {" or "}
+          <a href="https://discord.gg/GGKAVYYENQ" style={{ ...link, verticalAlign: 'middle', marginLeft: 4, display: 'inline-block' }}>
+            <img
+              src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/discord.svg"
+              alt="Discord"
+              width="18"
+              height="18"
+              style={{ display: 'inline', verticalAlign: 'middle', marginRight: 2 }}
+            />
+            Discord
           </a>
         </Text>
         <Text style={signOff}>
