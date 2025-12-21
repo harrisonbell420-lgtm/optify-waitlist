@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     description: 'AI-powered waitlist and onboarding for your product.',
     images: [
       {
-        url: 'https://optifyai.app/optify-og.png',
+        url: 'https://optifyai.app/optify-og-new.png',
         width: 1365,
         height: 768,
         alt: 'Optify Logo',
