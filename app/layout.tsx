@@ -52,9 +52,6 @@ export function generateMetadata() {
     ],
   };
 }
-    images: ['https://optifyai.app/twitter-image.png'],
-  },
-};
 
 export default function RootLayout({
   children,
