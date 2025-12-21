@@ -36,26 +36,40 @@ const ChakraPetch = Chakra_Petch({
   variable: "--font-chakra-petch"
 });
 
-export const metadata: Metadata = {
-  title: "Optify - Join the Waitlist",
-  description:
-    "Join the Optify waitlist for smarter, AI-powered website optimization. Be the first to know when we launch.",
-  openGraph: {
-    title: 'Optify',
-    description: 'AI-powered waitlist and onboarding for your product.',
-    images: [
+export function generateMetadata() {
+  return {
+    title: "Optify - Join the Waitlist",
+    description:
+      "Join the Optify waitlist for smarter, AI-powered website optimization. Be the first to know when we launch.",
+    openGraph: {
+      title: 'Optify',
+      description: 'AI-powered waitlist and onboarding for your product.',
+      images: [
+        {
+          url: 'https://optifyai.app/optify-og-new.png',
+          width: 1365,
+          height: 768,
+          alt: 'Optify Logo',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'Optify',
+      description: 'AI-powered waitlist and onboarding for your product.',
+      images: ['https://optifyai.app/twitter-image.png'],
+    },
+    other: [
       {
-        url: 'https://optifyai.app/optify-og-new.png',
-        width: 1365,
-        height: 768,
-        alt: 'Optify Logo',
+        tagName: 'meta',
+        attributes: {
+          property: 'twitter:image',
+          content: 'https://optifyai.app/twitter-image.png',
+        },
       },
     ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Optify',
-    description: 'AI-powered waitlist and onboarding for your product.',
+  };
+}
     images: ['https://optifyai.app/twitter-image.png'],
   },
 };
@@ -75,20 +89,4 @@ export default function RootLayout({
         property="og:site_name"
         content="Next.js + Notion — Waitlist Template"
       />
-      <meta
-        property="og:url"
-        content="https://nextjs-notion-waitlist.vercel.app/"
-      />
-      <meta name="twitter:image" content="/twitter-image.png" />
-      <meta name="twitter:image:type" content="image/png" />
-      <meta name="twitter:image:width" content="1280" />
-      <meta name="twitter:image:height" content="832" />
-      <body className={`${GeistFont.className} ${ChakraPetch.variable}`}>
-        {children}
-        <Toaster richColors position="top-center" />
-        <Analytics />
-        <Footer />
-      </body>
     </html>
-  );
-}
