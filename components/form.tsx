@@ -1,10 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import { ChangeEvent } from "react";
 import { motion } from "framer-motion";
 import { FaXTwitter } from "react-icons/fa6";
-import { Input } from "@/components/ui/input";
-import { FaArrowRightLong } from "react-icons/fa6";
-import { EnhancedButton } from "@/components/ui/enhanced-btn";
 import { containerVariants, itemVariants } from "@/lib/animation-variants";
 
 interface FormProps {
@@ -26,46 +25,72 @@ export default function Form({
 }: FormProps) {
   return (
     <motion.div
-      className="mt-6 flex w-full max-w-[24rem] flex-col gap-2"
+      className="flex w-full max-w-[388px] flex-col gap-5"
       variants={containerVariants}
       initial="hidden"
-      animate="visible">
+      animate="visible"
+    >
+      {/* Name field - stacked above */}
       <motion.div variants={itemVariants}>
-        <Input
+        <input
           type="text"
           placeholder="Your Name"
           value={name}
           onChange={handleNameChange}
+          className="h-[38px] w-full rounded-[10px] border border-white/15 bg-black/28 px-3 text-sm tracking-[-0.02em] text-white placeholder:text-[#A1A3AA] focus:border-white/30 focus:outline-none focus:ring-1 focus:ring-white/20"
         />
       </motion.div>
-      <motion.div variants={itemVariants}>
-        <Input
-          type="email"
-          placeholder="Your Email Address"
-          value={email}
-          onChange={handleEmailChange}
-        />
-      </motion.div>
-      <motion.div variants={itemVariants}>
-        <EnhancedButton
-          variant="expandIcon"
-          Icon={FaArrowRightLong}
-          onClick={handleSubmit}
-          iconPlacement="right"
-          className="mt-2 w-full [&:hover>span]:bg-gradient-to-r [&:hover>span]:from-[#EFFFEF] [&:hover>span]:to-[#00FF0E] [&:hover>span]:bg-clip-text [&:hover>span]:text-transparent [&:hover_svg]:text-[#00FF0E]"
-          disabled={loading}>
-          <span>{loading ? "Loading..." : "Join Waitlist!"}</span>
-        </EnhancedButton>
-      </motion.div>
+
+      {/* Email + Join button - inline row per design */}
       <motion.div
         variants={itemVariants}
-        className="mt-4 flex w-full items-center justify-center gap-1 text-muted-foreground">
-        <p>For any queries, reach out at </p>
+        className="flex h-[38px] w-full gap-2 overflow-hidden rounded-[10px]"
+      >
+        <input
+          type="email"
+          placeholder="your@email.com"
+          value={email}
+          onChange={handleEmailChange}
+          className="h-full flex-1 min-w-0 rounded-[10px] border border-white/15 bg-black/28 px-3 text-sm tracking-[-0.02em] text-white placeholder:text-[#A1A3AA] focus:border-white/30 focus:outline-none focus:ring-1 focus:ring-white/20"
+        />
+        <button
+          type="button"
+          onClick={handleSubmit}
+          disabled={loading}
+          className="flex h-full shrink-0 items-center justify-center rounded-[10px] bg-white px-4 font-medium tracking-[-0.02em] text-black transition-opacity hover:opacity-95 disabled:cursor-not-allowed disabled:opacity-60"
+        >
+          {loading ? "..." : "Join waitlist"}
+        </button>
+      </motion.div>
+
+      {/* Social proof - creators have joined */}
+      <motion.div
+        variants={itemVariants}
+        className="flex items-center gap-2"
+      >
+        <span className="text-xs tracking-[-0.02em] text-[#A1A3AA]">
+          creators have already joined
+        </span>
+        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/11 bg-black/56 backdrop-blur-[15.5px]">
+          <span className="text-[10px] font-normal tracking-[-0.02em] text-white">
+            63+
+          </span>
+        </div>
+      </motion.div>
+
+      {/* Twitter link */}
+      <motion.div
+        variants={itemVariants}
+        className="flex items-center gap-1 text-[#A1A3AA]"
+      >
+        <span className="text-xs">For any queries, reach out at</span>
         <Link
           href="https://x.com/optifyai"
           rel="noopener noreferrer"
-          target="_blank">
-          <FaXTwitter className="h-4 w-4 transition-all duration-200 ease-linear hover:text-green-400" />
+          target="_blank"
+          className="text-[#A1A3AA] transition-colors hover:text-white"
+        >
+          <FaXTwitter className="h-4 w-4" />
         </Link>
       </motion.div>
     </motion.div>

@@ -91,11 +91,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark overflow-hidden" suppressHydrationWarning>
+    <html lang="en" className="dark h-full w-full overflow-hidden" suppressHydrationWarning>
       <head />
-      <body className={`${GeistFont.className} ${ChakraPetch.variable} overflow-hidden`}> 
+      <body className={`${GeistFont.className} ${ChakraPetch.variable} m-0 h-full w-full overflow-hidden p-0`} style={{ minHeight: "100dvh" }}> 
         {children}
-        <Toaster richColors position="top-center" />
+        <Toaster />
         <Analytics />
         <Footer />
       </body>

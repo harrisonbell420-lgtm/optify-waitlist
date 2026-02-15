@@ -70,13 +70,20 @@
   * {
     @apply border-border;
   }
+  html {
+    height: 100%;
+    overflow: hidden;
+  }
   body {
     @apply bg-background text-foreground;
+    height: 100%;
+    min-height: 100dvh;
+    overflow: hidden;
   }
 }
 
-body {
-  ::selection {
-    @apply bg-accent text-yellow-200;
-  }
+/* Use default browser text selection (remove custom yellow) */
+body ::selection {
+  background: Highlight;
+  color: HighlightText;
 }
